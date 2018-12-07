@@ -1,13 +1,14 @@
 {
   "name": "mathquill-jquery",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Mathquill bundled with jQuery",
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build_js && npm run build_css",
     "build_js": "echo 'import jQuery from \"jquery\";\nconst globals = {jQuery};\nconst $ = jQuery;\n' > tmp.js && cat ./node_modules/mathquill/build/mathquill.js >> tmp.js && echo '\nexport default globals.MathQuill' >> tmp.js && replace 'window\\.' 'globals.' tmp.js && rollup -c",
-    "build_css": "mkdir -p build/font && cp node_modules/mathquill/build/font/*.woff2 build/font/ && cp node_modules/mathquill/build/mathquill.css build/ && replace ', url(font/Symbola.woff) format(\"woff\"), url(font/Symbola.ttf) format(\"truetype\"), url(font/Symbola.otf) format(\"opentype\"), url(font/Symbola.svg#Symbola) format(\"svg\")' '' build/mathquill.css && replace 'src: url(font/Symbola.eot);' '' build/mathquill.css"
+    "build_css": "mkdir -p build/font && cp node_modules/mathquill/build/font/*.woff2 build/font/ && cp node_modules/mathquill/build/mathquill.css build/ && replace ', url(font/Symbola.woff) format(\"woff\"), url(font/Symbola.ttf) format(\"truetype\"), url(font/Symbola.otf) format(\"opentype\"), url(font/Symbola.svg#Symbola) format(\"svg\")' '' build/mathquill.css && replace 'src: url(font/Symbola.eot);' '' build/mathquill.css",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
